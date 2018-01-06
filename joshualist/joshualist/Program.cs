@@ -61,32 +61,47 @@ namespace joshualist
                 {
                   
                     Console.WriteLine("enter the item.");
-                       
-                    int deletenumber = int.Parse(Console.ReadLine())-1;
+
+                    int deletenumber = 1;
+                    bool found = false;
+
+                    string deletestring = Console.ReadLine();
                     string[] list2 = new string[list.Length - 1];
                     for (int i = 0; i < list.Count(); i++)
                     {
-                       if( list[i] == Console.ReadLine())
+                        if (found == false)
                         {
-
-
+                            if (deletestring == list[i])
+                            {
+                                deletenumber = i;
+                                found = true;
+                            }
                         }
 
                     }
-                        for (int i = 0; i < list2.Count(); i++)
+                    if (found == false)
                     {
-                        if (i < deletenumber)
-                        {
-                            list2[i] = list[i];
-                        }
-                       else
-                        {
+                        Console.WriteLine("the item does not exist.");
 
-                            list2[i] = list[i+1];
-                        }
                     }
+                    else
+                    {
+                        for (int i = 0; i < list2.Count(); i++)
+                        {
+                            if (i < deletenumber)
+                            {
+                                list2[i] = list[i];
+                            }
+                            else
+                            {
+
+                                list2[i] = list[i + 1];
+                            }
+                        }
+
 
                         list = list2;
+                    }
                 }
                 if (result2 == 4)
                 {
