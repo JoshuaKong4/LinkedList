@@ -11,8 +11,8 @@ namespace singlylinkedlistjoshua
         static void Main(string[] args)
         {
             SinglyLinkedList<int> list = new SinglyLinkedList<int>();
-            
-            
+            list.Addfirst(7);
+            list.Addfirst(6);
             list.Addfirst(5);
             list.Addfirst(4); 
             list.Addfirst(3);

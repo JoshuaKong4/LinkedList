@@ -62,22 +62,32 @@ namespace singlylinkedlistjoshua
         public void Remove (T addvalue)
         {
             var current = Head;
-            if (Head != null)
+            if (current.Value.Equals(addvalue))
             {
-                while (!addvalue.Equals(current.Value))
-                {
-                    current = current.Next;
+                current = current.Next;
 
-                }
-                while (current.Next!= null)
-                {
-                   
-                    current.Value = current.Next.Value;
-                    current = current.Next;
-              
-
-                }
             }
+           else
+            {
+                while (!addvalue.Equals(current.Next.Value))
+                {
+                    current = current.Next;
+
+                }
+                if (current.Next.Next.Next != null)
+                {
+                    current.Next = current.Next.Next;
+                }
+                    
+                //while(current.Next.Next!= null)
+                //{
+              
+                //}
+             
+               
+             
+           }
+        
 
         }
     }
