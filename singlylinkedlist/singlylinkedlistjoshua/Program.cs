@@ -18,7 +18,8 @@ namespace singlylinkedlistjoshua
             list.Addfirst(3);
             list.Addfirst(2);
             list.Addfirst(1);
-            list.Remove(1);
+            list.Remove(7);
+            list.Addlast(1);
             list.DisplayList();
             Console.ReadKey();
             

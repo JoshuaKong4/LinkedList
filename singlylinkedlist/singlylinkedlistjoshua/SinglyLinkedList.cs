@@ -55,17 +55,17 @@ namespace singlylinkedlistjoshua
 
                 }
                 current.Next = new SingleNode<T>(addvalue);
-
+                           
             }
 
         }
         public void Remove (T addvalue)
         {
-            var current = Head;
-            if (current.Value.Equals(addvalue))
+            var current = Head.Next;
+     
+            if (Head.Next.Value.Equals(addvalue))
             {
-                current = current.Next;
-
+           
             }
            else
             {
@@ -74,21 +74,16 @@ namespace singlylinkedlistjoshua
                     current = current.Next;
 
                 }
-                if (current.Next.Next.Next != null)
+                if (current.Next.Next != null)
                 {
                     current.Next = current.Next.Next;
                 }
-                    
-                //while(current.Next.Next!= null)
-                //{
-              
-                //}
-             
-               
-             
+                else
+                {
+                    current.Next = null;
+                }
+                        
            }
-        
-
         }
     }
 }
