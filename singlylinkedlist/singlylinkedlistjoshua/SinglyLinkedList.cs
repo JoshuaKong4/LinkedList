@@ -61,11 +61,12 @@ namespace singlylinkedlistjoshua
         }
         public void Remove (T addvalue)
         {
-            var current = Head.Next;
+            var current = Head;
      
-            if (Head.Next.Value.Equals(addvalue))
+            if (Head.Value.Equals(addvalue))
             {
-           
+                Head = Head.Next;
+
             }
            else
             {
@@ -84,6 +85,42 @@ namespace singlylinkedlistjoshua
                 }
                         
            }
+        }
+        public void insert(int index, T addvalue)
+        {
+            var current = Head;
+            int currentindex = 2;
+            if (index == 0)
+            {
+                Addfirst(addvalue);
+            }
+            else if (index == 1)
+            {
+                SingleNode<T> temp = new SingleNode<T>(addvalue);
+                temp.Next = current.Next;
+                current.Next= temp;
+
+            }
+            else
+            {      
+                while (currentindex != index )
+                {
+                    
+                    current = current.Next;
+                    currentindex++;
+                }
+                if (current.Next.Next != null)
+                {
+                    SingleNode<T> temp = new SingleNode<T>(addvalue);
+                    temp.Next = current.Next;
+                    current.Next = temp;
+                }
+                else
+                {
+                    
+                }
+            }
+
         }
     }
 }
