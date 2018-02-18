@@ -9,6 +9,7 @@ namespace singlylinkedlistjoshua
     class SinglyLinkedList<T>
     {
         SingleNode<T> Head;
+        int size = 0;
         public SinglyLinkedList()
         {
             Head = null;
@@ -26,20 +27,10 @@ namespace singlylinkedlistjoshua
                 temp.Next = Head;
                 Head = temp;
             }
-
+            size++;
         }
 
-        public void DisplayList()
-        {
-            var current = Head;
-            while (current != null)
-            {
-                Console.WriteLine($"{current.Value.ToString()}");
-
-                current = current.Next;
-            }
-
-        }
+       
         public void Addlast(T addvalue)
         {
             if (Head == null)
@@ -57,12 +48,12 @@ namespace singlylinkedlistjoshua
                 current.Next = new SingleNode<T>(addvalue);
                            
             }
-
+            size++;
         }
         public void Remove (T addvalue)
         {
             var current = Head;
-     
+      
             if (Head.Value.Equals(addvalue))
             {
                 Head = Head.Next;
@@ -85,42 +76,72 @@ namespace singlylinkedlistjoshua
                 }
                         
            }
+            size--;
         }
         public void insert(int index, T addvalue)
         {
             var current = Head;
-            int currentindex = 2;
+            int currentindex = 1;
+          
+                if (index == 0)
+                {
+                    Addfirst(addvalue);
+                }
+
+                else
+                {
+                    while (currentindex != index)
+                    {
+
+                        current = current.Next;
+                        currentindex++;
+                    }
+                    if (current.Next != null)
+                    {
+                        SingleNode<T> temp = new SingleNode<T>(addvalue);
+                        temp.Next = current.Next;
+                        current.Next = temp;
+                    }
+
+                }
+            
+
+        }
+        public IEnumerator<T> GetEnumerator()
+        {
+            var current = Head;
+            while(current.Next != null)
+            {
+                yield return current.Value;
+            }
+        }
+
+        public void RemoveIndex(int index)
+        {
+            var current = Head;
+            int currentindex = 1;
             if (index == 0)
             {
-                Addfirst(addvalue);
-            }
-            else if (index == 1)
-            {
-                SingleNode<T> temp = new SingleNode<T>(addvalue);
-                temp.Next = current.Next;
-                current.Next= temp;
+                Head = Head.Next;
 
             }
             else
-            {      
-                while (currentindex != index )
+            {
+                while ( currentindex != index)
                 {
-                    
                     current = current.Next;
                     currentindex++;
                 }
                 if (current.Next.Next != null)
                 {
-                    SingleNode<T> temp = new SingleNode<T>(addvalue);
-                    temp.Next = current.Next;
-                    current.Next = temp;
+                    current.Next = current.Next.Next;
                 }
                 else
                 {
-                    
+                    current.Next = null;
                 }
-            }
 
+            }
         }
     }
 }

@@ -18,9 +18,12 @@ namespace singlylinkedlistjoshua
             list.Addfirst(3);
             list.Addfirst(2);
             list.Addfirst(1);
-            list.insert(0, 8);
-            list.DisplayList();
-            Console.ReadKey();
+            list.RemoveIndex(4);
+            
+            foreach(int currentNumber in list)
+            {
+                Console.WriteLine(currentNumber);
+            }
             
 
 
