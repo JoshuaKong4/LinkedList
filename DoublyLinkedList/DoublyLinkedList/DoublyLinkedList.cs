@@ -9,46 +9,51 @@ namespace DoublyLinkedList
     class DoublyLinkedList<T>
     {
        public DoubleNode<T> Head;
+        public DoubleNode<T> Tail;
+        int count;
       public DoublyLinkedList ()
         {
             Head = null;
-           
+            Tail = null;
         }
         public void addfirst(T addvalue)
         {
             if (Head == null)
             {
-                Head =  new DoubleNode<T>(addvalue);
-
+                Head = new DoubleNode<T>(addvalue);
+                Tail = Head.Next;
+                count++;
             }
+           
             else
             {
                 DoubleNode<T> Temp = new DoubleNode<T>(addvalue);
                 Temp.Next = Head;
-                Temp.Previous = Head;
+                Head.Previous = Temp;
                 Head = Temp;
+                count++;
                 
             }
 
         }
         public void addlast(T addvalue)
-        { 
-          
-            if (Head == null)
+        {
+
+            if (Tail == null)
             {
 
-                addfirst(addvalue);
+                Tail = new DoubleNode<T>(addvalue);
             }
             else
             {
-                var current = Head;
-                while (current.Next != null)
-                {
-                    current = current.Next;
-
-                }
-                current.Next = new DoubleNode<T>(addvalue);
+                DoubleNode<T> Temp = new DoubleNode<T>(addvalue);
+                Temp.Previous = Tail;
+                Tail.Next = Temp;
+                Tail = Temp;
+                count++;
             }
+               
+            
         }
         public IEnumerator<T> GetEnumerator()
         {
@@ -56,7 +61,7 @@ namespace DoublyLinkedList
             while (current.Next != null)
             {
                 yield return current.Value;
-             // current = current.Next;
+         
             }
         }
 
@@ -72,30 +77,60 @@ namespace DoublyLinkedList
             }
             else
             {
-                while (!addvalue.Equals(current.Next.Value))
+                while (!addvalue.Equals(current.Value))
                 {
-                    current = current.Next;
+                    current.Previous = current.Next;
 
                 }
-                if (current.Next.Next != null)
-                {
-                    current.Next = current.Next.Next;
-                }
-                else
-                {
-                    current.Next = null;
-                }
+               
 
             }
+            count--;
         }
         public void displaylist()
         {
             var current = Head;
-            while (current.Previous != null)
+            while (current != null)
             {
-                Console.WriteLine(current.Value);
+                if (current == Head)
+                {
+                    Console.WriteLine($"H{current.Value}");
+                }
+                else if (current == Tail)
+                {
+                    Console.WriteLine($"T{current.Value}");
+                }
+                else
+                {
+                    Console.WriteLine($"{current.Value}");
+
+                }
+                current = current.Next;
+            }
+          //'  Console.WriteLine($"count:{count}");
+
+        }
+        public void displaybackwards()
+        {
+            var current = Tail;
+            while (current != null)
+            {
+                if (current == Head)
+                {
+                    Console.WriteLine($"H{current.Value}");
+                }
+                else if (current == Tail)
+                {
+                    Console.WriteLine($"T{current.Value}");
+                }
+                else
+                {
+                    Console.WriteLine($"{current.Value}");
+
+                }
                 current = current.Previous;
             }
+         //   Console.WriteLine($"count:{count}");
 
         }
 
