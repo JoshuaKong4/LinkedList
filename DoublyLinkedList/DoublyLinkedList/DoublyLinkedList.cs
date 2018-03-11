@@ -10,18 +10,20 @@ namespace DoublyLinkedList
     {
        public DoubleNode<T> Head;
         public DoubleNode<T> Tail;
+        public DoubleNode<T> selected;
         int count;
       public DoublyLinkedList ()
         {
             Head = null;
-            Tail = null;
+            Tail = Head;
         }
         public void addfirst(T addvalue)
         {
             if (Head == null)
             {
                 Head = new DoubleNode<T>(addvalue);
-                Tail = Head.Next;
+                Tail = Head;
+                
                 count++;
             }
            
@@ -34,7 +36,6 @@ namespace DoublyLinkedList
                 count++;
                 
             }
-
         }
         public void addlast(T addvalue)
         {
@@ -43,6 +44,7 @@ namespace DoublyLinkedList
             {
 
                 Tail = new DoubleNode<T>(addvalue);
+                Head = Tail;
             }
             else
             {
@@ -55,37 +57,56 @@ namespace DoublyLinkedList
                
             
         }
-        public IEnumerator<T> GetEnumerator()
-        {
-            var current = Head;
-            while (current.Next != null)
-            {
-                yield return current.Value;
-         
-            }
-        }
 
         public void remove (T addvalue)
         {
 
             var current = Head;
 
-            if (Head.Value.Equals(addvalue))
+            while (!current.Value.Equals(addvalue))
             {
-                Head = Head.Next;
+                current = current.Next;
 
+            }
+
+            if (current == Head)
+            {
+                Head = current.Next;
+                current.Next.Previous = null;
+
+            }
+            else if (current == Tail)
+            {
+                Tail = current.Previous;
+                current.Previous.Next = null;
             }
             else
             {
-                while (!addvalue.Equals(current.Value))
-                {
-                    current.Previous = current.Next;
-
-                }
-               
-
+                current.Previous.Next = current.Next;
             }
+
+
             count--;
+        }
+        public void addindex(int Index, T addvalue)
+        {
+            int index = 0;
+            var current = Head;
+
+            while (index != Index)
+            {
+                current = current.Next;
+                index++;
+            }
+            DoubleNode<T> Temp = new DoubleNode<T>(addvalue);
+
+            Temp.Next = current;
+            Temp.Previous = current.Previous.Previous;
+            current.Previous.Previous.Next = Temp;
+            current.Previous = Temp;
+            
+            
+
         }
         public void displaylist()
         {
@@ -107,7 +128,7 @@ namespace DoublyLinkedList
                 }
                 current = current.Next;
             }
-          //'  Console.WriteLine($"count:{count}");
+        
 
         }
         public void displaybackwards()
@@ -130,7 +151,7 @@ namespace DoublyLinkedList
                 }
                 current = current.Previous;
             }
-         //   Console.WriteLine($"count:{count}");
+      
 
         }
 

@@ -12,15 +12,7 @@ namespace DoublyLinkedList
         static void Main(string[] args)
         {
             DoublyLinkedList<int> list = new DoublyLinkedList<int>();
-            //list.addlast(1);
-            //list.addlast(2);
-            //list.addlast(3);
-            //list.addlast(4);
-            //list.addlast(5);
-            //list.addlast(6);
-            //list.addlast(7);
-            //list.addlast(8);
-            //list.addlast(9);
+            
            for(int i = 0; i<10; i++)
             {
                
@@ -28,15 +20,16 @@ namespace DoublyLinkedList
                          
 
             }
-           // list.remove(5);
+           
+           list.addindex(5, 21);
 
-           list.displaylist();
-            list.displaybackwards();
+            list.displaylist();
+            //list.displaybackwards();
         
-            foreach (int currentNumber in list)
-            {
-               // Console.WriteLine(currentNumber);
-            }
+            //foreach (int currentNumber in list)
+            //{
+            //   // Console.WriteLine(currentNumber);
+            //}
 
             Console.ReadKey();
         }
