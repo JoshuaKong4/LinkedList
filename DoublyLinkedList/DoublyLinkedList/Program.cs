@@ -8,28 +8,31 @@ namespace DoublyLinkedList
 {
     class Program
     {
-       
+
         static void Main(string[] args)
         {
             DoublyLinkedList<int> list = new DoublyLinkedList<int>();
-            
-           for(int i = 0; i<10; i++)
-            {
-               
-                list.addfirst(i);
-                         
 
-            }
-           
-           list.addindex(5, 21);
-
-            list.displaylist();
-            //list.displaybackwards();
-        
-            //foreach (int currentNumber in list)
+            //for (int i = 0; i < 20; i++)
             //{
-            //   // Console.WriteLine(currentNumber);
+            //    list.addlast(i);
             //}
+
+            list.addfirst(3);
+            list.addfirst(2);
+            list.addfirst(1);
+
+            list.addlast(4);
+            list.addlast(6);
+
+            list.addindex(4, 5);
+
+            list.addindex(0, 100);
+
+            list.removeindex(2);
+            list.Displaylist();
+
+            list.Displaylistback();
 
             Console.ReadKey();
         }

@@ -83,6 +83,39 @@ namespace DoublyLinkedList
             else
             {
                 current.Previous.Next = current.Next;
+                current.Next.Previous = current.Previous;
+            }
+
+
+            count--;
+        }
+        public void removeindex(int indexes)
+        {
+
+            int index = 0;
+            var current = Head;
+
+            while (index != indexes)
+            {
+                current = current.Next;
+                index++;
+            }
+
+            if (current == Head)
+            {
+                Head = current.Next;
+                current.Next.Previous = null;
+
+            }
+            else if (current == Tail)
+            {
+                Tail = current.Previous;
+                current.Previous.Next = null;
+            }
+            else
+            {
+                current.Previous.Next = current.Next;
+                current.Next.Previous = current.Previous;
             }
 
 
@@ -98,67 +131,59 @@ namespace DoublyLinkedList
                 current = current.Next;
                 index++;
             }
-            DoubleNode<T> Temp = new DoubleNode<T>(addvalue);
+            if(current == Head)
+            {
+                addfirst(addvalue);
 
-            Temp.Next = current;
-            Temp.Previous = current.Previous.Previous;
-            current.Previous.Previous.Next = Temp;
-            current.Previous = Temp;
-            
-            
+            }
+            //else if (current == Tail)
+            //{
+            //    addlast(addvalue);
 
+            //}
+            else
+            {
+                DoubleNode<T> Temp = new DoubleNode<T>(addvalue);
+
+                current.Previous.Next = Temp;
+                Temp.Next = current;
+                Temp.Previous = current.Previous;
+                current.Previous = Temp;
+            }
+            
+         
+            
         }
-        public void displaylist()
+        public void Displaylist()
         {
             var current = Head;
             while (current != null)
             {
-                if (current == Head)
-                {
-                    Console.WriteLine($"H{current.Value}");
-                }
-                else if (current == Tail)
-                {
-                    Console.WriteLine($"T{current.Value}");
-                }
-                else
-                {
+               
+                
                     Console.WriteLine($"{current.Value}");
-
-                }
+                
+            
                 current = current.Next;
             }
-        
+
 
         }
-        public void displaybackwards()
+        public void Displaylistback()
         {
             var current = Tail;
             while (current != null)
             {
-                if (current == Head)
-                {
-                    Console.WriteLine($"H{current.Value}");
-                }
-                else if (current == Tail)
-                {
-                    Console.WriteLine($"T{current.Value}");
-                }
-                else
-                {
-                    Console.WriteLine($"{current.Value}");
 
-                }
+
+                Console.WriteLine($"{current.Value}");
+
+
                 current = current.Previous;
             }
-      
+
 
         }
-
-
-
-
-
 
     }
 }
