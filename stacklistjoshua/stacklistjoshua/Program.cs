@@ -11,8 +11,17 @@ namespace stacklistjoshua
         
         static void Main(string[] args)
         {
-            stack<int> stack;
-       
+            Stack<int> stacks = new Stack<int>() ;
+            stacks.Push(7);
+            stacks.Push(6);
+            stacks.Peek();
+            stacks.Pop();
+            stacks.Peek();
+   
+            
+
+            
+            Console.ReadKey();
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace stacklistjoshua
 {
-    class stacknode<T>
+    class Stacknode<T>
     {
         public T value;
-       public stacknode<T> Next;
-    public stacknode (T VAlues)
+       public Stacknode<T> Next;
+    public Stacknode (T VAlues)
         {
             value = VAlues;
             Next = null;

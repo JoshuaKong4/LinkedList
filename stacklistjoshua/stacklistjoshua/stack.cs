@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace stacklistjoshua
 {
-    class stack<T>
+    class Stack<T>
     {
-        stacknode<T> Head;
-        public stack ()
+        Stacknode<T> Head;
+        public Stack ()
         {
             Head = null;
 
         }
-        public void push (T addvalue)
+        public void Push (T addvalue)
         {
             if(Head == null)
             {
-                Head.value = addvalue;
+                Head = new Stacknode<T>(addvalue);
 
             }
             else
@@ -26,20 +26,48 @@ namespace stacklistjoshua
                 var current = Head;
                 while(current.Next != null)
                 {
-                    current.Next = new stacknode<T>(addvalue);
+                    current = current.Next;
 
                 }
+                current.Next = new Stacknode<T>(addvalue);
 
             }
         }
-        public void pop ()
+        public void Pop ()
         {
+            if (Head != null)
+            {
+                var current = Head;
+                if (current.Next == null)
+                {
 
+                    Head = null;
+                }
+                else
+                {
+                    while (current.Next.Next != null)
+                    {
+                        current = current.Next;
 
-        } public void peek ()
+                    }
+                    current.Next = null;
+                }
+            }
+
+        }
+        public void Peek ()
         {
+            var current = Head;
+            if (Head != null)
+            {
+                while (current.Next != null)
+                {
 
+                    current = current.Next;
 
+                }
+                Console.WriteLine($"{current.value}");
+            }
         }
     }
 }
