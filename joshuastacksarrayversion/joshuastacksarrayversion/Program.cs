@@ -13,10 +13,15 @@ namespace joshuastacksarrayversion
         {
             Stack<int> lol = new Stack<int>();
 
-            lol.Push(1);
-            lol.Push(2);
-            lol.Push(3);
+
+            lol.Push(10);
+            lol.Push(20);
+            lol.Push(30);
             lol.Peek();
+           
+           
+
+           
             Console.ReadKey();
         }
     }
