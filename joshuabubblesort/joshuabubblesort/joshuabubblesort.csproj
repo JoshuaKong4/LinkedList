@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0517B98-20EB-4F0A-8A61-14C849C322DA}</ProjectGuid>
+    <ProjectGuid>{F05C4B48-B27D-43F0-AC5D-F351C06E1E35}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>queuejoshua</RootNamespace>
-    <AssemblyName>queuejoshua</AssemblyName>
+    <RootNamespace>joshuabubblesort</RootNamespace>
+    <AssemblyName>joshuabubblesort</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queuelist.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

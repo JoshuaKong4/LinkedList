@@ -4,19 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace queuejoshua
+namespace JoshuaArrayQueue
 {
     class Node<T>
     {
-       public Node<T> Next;
-       public T Value;
-        public Node( T value)
+        public T Value;
+        public Node<T> Next;
+         public Node (T value)
         {
-            Next = null;
             Value = value;
-           
-
-
+            Next = null;
         }
+
+
     }
 }

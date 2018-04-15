@@ -4,27 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace queuejoshua
+namespace JoshuaArrayQueue
 {
     class Program
     {
         static void Main(string[] args)
         {
             Queuelist<int> list = new Queuelist<int>();
+            list.Enqueue(1);
+            list.Enqueue(2);
+            list.Enqueue(3);
+            list.Enqueue(4);
+            list.Enqueue(5);
 
-            list.Queue(1);
-            list.Queue(9);
-            list.Queue(8);
-            list.Queue(7);
-            list.Queue(6);
-            list.Queue(5);
+
             list.Dequeue();
             list.Dequeue();
-            //list.Delete();
-            //list.Delete();
+            list.Dequeue();
+            
+
+
+
 
             list.View();
+
             Console.ReadKey();
+
+
+            
+            
         }
     }
 }
