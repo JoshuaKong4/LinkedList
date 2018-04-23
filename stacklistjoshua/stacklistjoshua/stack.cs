@@ -60,13 +60,7 @@ namespace stacklistjoshua
             var current = Head;
             if (Head != null)
             {
-                while (current.Next != null)
-                {
-
-                    current = current.Next;
-
-                }
-                Console.WriteLine($"{current.value}");
+               
             }
         }
     }
