@@ -31,26 +31,36 @@ namespace joshuabubblesort
             }
             
         }
-        public void Sort ()
+        public void Sort()
         {
             var current = Head;
-            while (current.Next != null)
+            for (int i = 0; i < count; i++)
             {
+                while (current.Next != null)
+            {
+
                 if (current.Value > current.Next.Value)
                 {
-                    int temp = current.Next. Value;
+                    int temp = current.Next.Value;
                     current.Next.Value = current.Value;
                     current.Value = temp;
                 }
-              
-                   
-         
+
                 current = current.Next;
 
             }
+            current = Head;
+        
+         }
+              
+                   
+         
+                
+
+       
 
 
-        }
+    }
         public void View ()
         {
             var current = Head;

@@ -8,17 +8,19 @@ namespace joshuabubblesort
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             List sortlist = new List();
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
 
-            sortlist.Addfirst(4);
-            sortlist.Addfirst(5);
-            sortlist.Addfirst(6);
-            sortlist.Addfirst(7);
-            sortlist.Addfirst(8);
-           
-           
+                sortlist.Addfirst(rand.Next(1,500));
+               
+            }
+
+
             sortlist.View();
 
             sortlist.Sort();
