@@ -8,11 +8,23 @@ namespace joshuaselectsort
 {
     class Program
     {
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
+            Random rand = new Random();
             List list = new List();
-            list.Addfirst(1);
-            list.Addfirst(41);
+            for(int i = 0; i< 5; i++)
+            {
+               
+                list.Addfirst(rand.Next(1,10));
+            }
+            list.Display();
+
+            for (int i = 0; i < 1; i++)
+            {
+                list.Sort();
+               
+            }
+            Console.WriteLine("");
             list.Display();
             Console.ReadKey();
         }

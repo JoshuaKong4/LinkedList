@@ -8,6 +8,8 @@ namespace joshuaselectsort
 {
     class List
     {
+        int smallestindex = 0;
+        int sortedindex = 0;
         public int count = 0; 
         public int[] Array = new int[40];
         public List()
@@ -22,7 +24,23 @@ namespace joshuaselectsort
         }
         public void Sort()
         {
-
+            for (int i = 0; i < count-sortedindex; i++)
+            {
+                if (Array[sortedindex +i] < Array[smallestindex])
+                {
+                    smallestindex = i;
+                    
+                }
+            
+            }
+            int temp = Array[smallestindex];
+            Array[smallestindex] = Array[sortedindex];
+            Array[sortedindex]  = temp;
+           
+            
+            sortedindex++;
+            // smallestindex = sortedindex;
+           
 
         }
         public void Display()
@@ -30,11 +48,25 @@ namespace joshuaselectsort
 
             for(int i = 0; i<count; i++)
             {
+                if (i == sortedindex)
+                {
+                    Console.WriteLine($"{Array[i]}sorted");
 
-                Console.WriteLine($"{Array[count]}");
+                }
+                else if(i== smallestindex)
+                {
+                    Console.WriteLine($"{Array[i]} smallest");
+                    
+                }
+                else
+                {
+                Console.WriteLine($"{Array[i]}");
+
+
+                }
 
             }
-
+         
         }
     }
 }
