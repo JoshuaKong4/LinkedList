@@ -12,20 +12,22 @@ namespace joshuaselectsort
         {
             Random rand = new Random();
             List list = new List();
-            for(int i = 0; i< 5; i++)
+            for(int i = 0; i< 4; i++)
             {
                
                 list.Addfirst(rand.Next(1,10));
             }
             list.Display();
 
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < list. count; i++)
             {
                 list.Sort();
-               
+                Console.WriteLine("");
+                list.Display();
+
             }
-            Console.WriteLine("");
-            list.Display();
+           
+
             Console.ReadKey();
         }
     }

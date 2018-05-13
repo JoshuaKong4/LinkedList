@@ -24,9 +24,9 @@ namespace joshuaselectsort
         }
         public void Sort()
         {
-            for (int i = 0; i < count-sortedindex; i++)
+            for (int i = sortedindex; i < count; i++)
             {
-                if (Array[sortedindex +i] < Array[smallestindex])
+                if (Array[i] < Array[smallestindex])
                 {
                     smallestindex = i;
                     
@@ -39,7 +39,7 @@ namespace joshuaselectsort
            
             
             sortedindex++;
-            // smallestindex = sortedindex;
+           smallestindex = sortedindex;
            
 
         }
