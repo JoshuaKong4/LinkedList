@@ -15,41 +15,66 @@ namespace joshuainsertionsort
             Random rand = new Random();
             int count = 0;
             List<int> list = new List<int>();
-            for(int i = 0; i< 50; i++)
+            for(int i = 0; i< 5; i++)
             {
 
                 list.Add(rand.Next(0, 50));
+                Console.WriteLine(list[i]);
 
                 count++;
             }
-            for (int i = 0; i < count; i++)
+            Console.WriteLine("");
+
+            for (int i = 0; i < 1; i++)
             {
                 int sortedindex = 0;
                 int insertindex = 0;
-                for (int j = 0; j < sortedindex +1; j++)
+                int lowest = 0;
+                bool issorted = true;
+                for (int j = sortedindex; j < count; j++)
                 {
-                    if(list[sortedindex +1] < list[j] )
+                    if (list[i] < list[lowest])
                     {
 
-                        insertindex = j - 1;
+                        lowest = i;
+                       // Console.WriteLine($"{j}");
+                     
+                    }
+                    if(list[lowest] < list[0])
+                    {
+                        insertindex = lowest;
 
                     }
+                    else
+                    {
 
+                        issorted = true; 
+                    }
+                    
                 }
-                //      sortedindex++;
-                for (int j = insertindex; j < sortedindex; j++)
+                sortedindex++;
+                if (issorted == false)
                 {
-                    list[i + 1] = list[i];
-                    list[insertindex] = list[sortedindex + 1];
+                    list[0] = list[insertindex];
+                    for (int j = 1; j < insertindex; j++)
+                    {
+                        list[j] = list[j-1];
+
+                    }
                 }
 
+            }
+            for (int i = 0; i < count; i++)
+            {
+
+                Console.WriteLine($"{list[i]}");
             }
 
 
 
-
-            Console.ReadKey();
+                Console.ReadKey();
 
         }
+       
     }
 }
