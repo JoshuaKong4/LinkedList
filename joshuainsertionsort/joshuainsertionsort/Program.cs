@@ -14,8 +14,9 @@ namespace joshuainsertionsort
         {
             Random rand = new Random();
             int count = 0;
+            int sortedindex = 0;
             List<int> list = new List<int>();
-            for(int i = 0; i< 5; i++)
+            for(int i = 0; i< 8; i++)
             {
 
                 list.Add(rand.Next(0, 50));
@@ -25,50 +26,43 @@ namespace joshuainsertionsort
             }
             Console.WriteLine("");
 
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 5; i++)
             {
-                int sortedindex = 0;
-                int insertindex = 0;
-                int lowest = 0;
-                bool issorted = true;
-                for (int j = sortedindex; j < count; j++)
+
+               // int insert= list[sortedindex +1];
+                
+                for (int j = count  ; j >1 ; j --)
                 {
-                    if (list[i] < list[lowest])
-                    {
-
-                        lowest = i;
-                       // Console.WriteLine($"{j}");
-                     
-                    }
-                    if(list[lowest] < list[0])
-                    {
-                        insertindex = lowest;
-
-                    }
-                    else
-                    {
-
-                        issorted = true; 
-                    }
-                    
+                    //list[j -1]= list[j];
+                    list[7] = 0;
                 }
+
+                //if (list[sortedindex] > list[sortedindex + 1])
+                //{
+                   
+                //    list[0] = insert;
+                
+                                    
+
+                //}
+               
+                
+                for (int j = 0; j < count; j++)
+                {
+                    //if (j == sortedindex)
+                    //{
+                    //    Console.WriteLine($"{list[j]}sorted");
+                    //}
+                    //else
+                    //{
+                        Console.WriteLine($"{list[j]}");
+
+                   // }
+                }
+                Console.WriteLine("");
                 sortedindex++;
-                if (issorted == false)
-                {
-                    list[0] = list[insertindex];
-                    for (int j = 1; j < insertindex; j++)
-                    {
-                        list[j] = list[j-1];
-
-                    }
-                }
-
             }
-            for (int i = 0; i < count; i++)
-            {
-
-                Console.WriteLine($"{list[i]}");
-            }
+           
 
 
 
