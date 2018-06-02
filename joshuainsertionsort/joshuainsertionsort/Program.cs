@@ -15,51 +15,52 @@ namespace joshuainsertionsort
             Random rand = new Random();
             int count = 0;
             int sortedindex = 0;
+
             List<int> list = new List<int>();
             for(int i = 0; i< 8; i++)
             {
 
-                list.Add(rand.Next(0, 50));
+                list.Add(8-i);
                 Console.WriteLine(list[i]);
-
+                
                 count++;
             }
             Console.WriteLine("");
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < count-1; i++)
             {
 
-               // int insert= list[sortedindex +1];
-                
-                for (int j = count  ; j >1 ; j --)
+                int temp = list[count-1];
+
+                for (int j = count-1; j > 0; j--)
                 {
-                    //list[j -1]= list[j];
-                    list[7] = 0;
+
+                    list[j] = list[j - 1];
                 }
+                list[0] = temp;
 
-                //if (list[sortedindex] > list[sortedindex + 1])
-                //{
-                   
-                //    list[0] = insert;
-                
-                                    
 
-                //}
-               
-                
+
+
+
                 for (int j = 0; j < count; j++)
                 {
-                    //if (j == sortedindex)
-                    //{
-                    //    Console.WriteLine($"{list[j]}sorted");
-                    //}
-                    //else
-                    //{
-                        Console.WriteLine($"{list[j]}");
+                    if (j == sortedindex)
+                    {
+                        Console.WriteLine($"{j} {list[j]}sorted");
+                    }
+                 
+                    else
+                    {
 
-                   // }
+                        Console.WriteLine($"{j} {list[j]}");
+                    }
+                   
+
+
                 }
-                Console.WriteLine("");
+                Console.WriteLine($"");
+                //  Console.WriteLine("");
                 sortedindex++;
             }
            
