@@ -15,61 +15,59 @@ namespace joshuainsertionsort
             Random rand = new Random();
             int count = 0;
             int sortedindex = 0;
+            int insertindex = 0;
+            bool sort = false;
+         
+     
+            int[] Array = new int[10]; 
+                
 
-            List<int> list = new List<int>();
-            for(int i = 0; i< 8; i++)
+            for (int i = 0; i < 10; i++)
             {
 
-                list.Add(8-i);
-                Console.WriteLine(list[i]);
-                
+                Array[i] = rand.Next(1, 30);
+                Console.WriteLine($"{Array[i]}");
                 count++;
             }
             Console.WriteLine("");
 
-            for (int i = 0; i < count-1; i++)
+            for (int i = 0; i < count - 1; i++)
             {
-
-                int temp = list[count-1];
-
-                for (int j = count-1; j > 0; j--)
+                if (Array[sortedindex] > Array[sortedindex + 1])
                 {
+                    sort = true;
 
-                    list[j] = list[j - 1];
+
+
+
                 }
-                list[0] = temp;
 
+               
 
-
-
-
-                for (int j = 0; j < count; j++)
+                for (int j = 0; j < count - 1; j++)
                 {
-                    if (j == sortedindex)
-                    {
-                        Console.WriteLine($"{j} {list[j]}sorted");
-                    }
-                 
-                    else
-                    {
-
-                        Console.WriteLine($"{j} {list[j]}");
-                    }
-                   
 
 
+                  Console.WriteLine($"{Array[j]}");
                 }
                 Console.WriteLine($"");
-                //  Console.WriteLine("");
+               
                 sortedindex++;
             }
-           
+          
+             void swap(int upper, int lower)
+            {
 
 
+            }
 
-                Console.ReadKey();
+         
+
+
+            Console.ReadKey();
 
         }
+        
        
     }
 }
