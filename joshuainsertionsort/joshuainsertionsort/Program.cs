@@ -16,58 +16,28 @@ namespace joshuainsertionsort
             int count = 0;
             int sortedindex = 0;
             int insertindex = 0;
-            bool sort = false;
+            int index1 = 0;
+              
+            List<int> todolist=new List<int>();
+            List<int> havedonelist = new List<int>();
          
-     
-            int[] Array = new int[10]; 
-                
-
-            for (int i = 0; i < 10; i++)
+             
+           for (int i = 0; i < 10; i++)
             {
-
-                Array[i] = rand.Next(1, 30);
-                Console.WriteLine($"{Array[i]}");
-                count++;
+                todolist.Add(11 - i);
+                 
+              Console.WriteLine($"{ todolist[i] }");
             }
             Console.WriteLine("");
 
-            for (int i = 0; i < count - 1; i++)
-            {
-                if (Array[sortedindex] > Array[sortedindex + 1])
-                {
-                    sort = true;
-
-
-
-
-                }
-
-               
-
-                for (int j = 0; j < count - 1; j++)
-                {
-
-
-                  Console.WriteLine($"{Array[j]}");
-                }
-                Console.WriteLine($"");
-               
-                sortedindex++;
-            }
-          
-             void swap(int upper, int lower)
-            {
-
-
-            }
-
-         
+            
+        
 
 
             Console.ReadKey();
 
         }
-        
+     
        
     }
 }
