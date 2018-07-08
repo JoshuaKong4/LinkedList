@@ -24,17 +24,23 @@ namespace joshuainsertionsort
              
            for (int i = 0; i < 10; i++)
             {
-                todolist.Add(11 - i);
+                todolist.Add(10 - i);
                  
               Console.WriteLine($"{ todolist[i] }");
             }
             Console.WriteLine("");
 
-            
-        
+            for (int i = 0; i < 10; i++)
+            {
 
 
-            Console.ReadKey();
+
+
+            }
+
+
+
+                Console.ReadKey();
 
         }
      
