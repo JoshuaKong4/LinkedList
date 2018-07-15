@@ -17,6 +17,7 @@ namespace joshuainsertionsort
             int sortedindex = 0;
             int insertindex = 0;
             int index1 = 0;
+            bool swap = false;
 
             List<int> todolist = new List<int>();
             List<int> havedonelist = new List<int>();
@@ -24,45 +25,63 @@ namespace joshuainsertionsort
 
             for (int i = 0; i < 10; i++)
             {
-                todolist.Add(rand.Next(1, 1000));
+             todolist.Add(rand.Next(1,1400));
 
                 // Console.WriteLine($"{ todolist[i] }");
             }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    havedonelist.Add(i);
+
+            //    Console.WriteLine($"{ todolist[i] }");
+            //}
             Console.WriteLine("");
 
             for (int i = 0; i < 10; i++)
             {
-     
-                if (todolist[sortedindex ] <= todolist[sortedindex+1])
+                if (havedonelist.Count == 0)
                 {
-                    int index = 0;
-                    int temp = todolist[sortedindex+1];
-                    todolist.RemoveAt(sortedindex+1);
-                    for (int j = 0; j < havedonelist.Count; j++)
-                    {
-
-                        index = j;
-                        if (havedonelist[j] < temp)
-                        {
-                            break;
-
-                        }
 
 
+                    havedonelist.Insert(0, todolist[sortedindex]);
+                    todolist.RemoveAt(sortedindex);
 
-                    }
-                    havedonelist.Insert(index, temp);
+                }
+                else if (havedonelist[count] < todolist[sortedindex])
+                {
+
+                    swap = false;
+                    havedonelist.Insert(havedonelist.Count, todolist[sortedindex]);
+                    todolist.RemoveAt(sortedindex);
+
+
 
                 }
                 else
                 {
-                    int index = havedonelist.Count;
-                    int temp = todolist[sortedindex ];
-                    todolist.RemoveAt(sortedindex );
+                    swap = true;
+                    int index = 0;
+                    havedonelist.Insert(0, todolist[0]);
+                    todolist.RemoveAt(0);
 
-                    havedonelist.Insert(index, temp);
+                    for (int j = 0; j < havedonelist.Count - 1; j++)
+                    {
+                        if (havedonelist[j] < havedonelist[j + 1])
+                        {
+                            int temp = havedonelist[j + 1];
+                            havedonelist[j + 1] = havedonelist[j];
+                            havedonelist[j] = temp;
+
+
+
+                        }
+
+
+                    }
+
 
                 }
+
 
 
 
@@ -70,16 +89,17 @@ namespace joshuainsertionsort
 
                 for (int j = 0; j < havedonelist.Count; j++)
                 {
-                    Console.WriteLine($"{ havedonelist[j]}");
+                    Console.WriteLine($"{ havedonelist[j]}sorted");
 
                 }
-                Console.WriteLine($"{ todolist[0]}sorted");
-                for (int j = 1; j < todolist.Count; j++)
+       
+                for (int j = 0; j < todolist.Count; j++)
                 {
 
                     Console.WriteLine($"{ todolist[j]}");
 
                 }
+                Console.WriteLine($"{ swap}");
 
                 Console.WriteLine($"");
 
