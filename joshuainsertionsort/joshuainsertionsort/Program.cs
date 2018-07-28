@@ -25,16 +25,11 @@ namespace joshuainsertionsort
 
             for (int i = 0; i < 10; i++)
             {
-             todolist.Add(rand.Next(1,1400));
+                todolist.Add(rand.Next(1, 100));
 
-                // Console.WriteLine($"{ todolist[i] }");
+            
             }
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    havedonelist.Add(i);
-
-            //    Console.WriteLine($"{ todolist[i] }");
-            //}
+           
             Console.WriteLine("");
 
             for (int i = 0; i < 10; i++)
@@ -57,30 +52,33 @@ namespace joshuainsertionsort
 
 
                 }
-                else
-                {
-                    swap = true;
-                    int index = 0;
+              else
+             {
+                    //swap = true;
+                   
                     havedonelist.Insert(0, todolist[0]);
-                    todolist.RemoveAt(0);
-
-                    for (int j = 0; j < havedonelist.Count - 1; j++)
-                    {
-                        if (havedonelist[j] < havedonelist[j + 1])
+                todolist.RemoveAt(0);
+           
+                for (int k = 0; k < 10; k++)
+                {
+                    
+                        for (int j = 0; j < havedonelist.Count - 1; j++)
                         {
-                            int temp = havedonelist[j + 1];
-                            havedonelist[j + 1] = havedonelist[j];
-                            havedonelist[j] = temp;
+                            if (havedonelist[j] < havedonelist[j + 1])
+                            {
+                                int temp = havedonelist[j + 1];
+                                havedonelist[j + 1] = havedonelist[j];
+                                havedonelist[j] = temp;
 
+
+
+                            }
 
 
                         }
-
-
-                    }
-
-
                 }
+
+               }
 
 
 
@@ -99,7 +97,7 @@ namespace joshuainsertionsort
                     Console.WriteLine($"{ todolist[j]}");
 
                 }
-                Console.WriteLine($"{ swap}");
+        
 
                 Console.WriteLine($"");
 
