@@ -33,31 +33,54 @@ namespace Recursionjoshua
         static int DisplayArray( int[] numarray, int  num)
         {
 
+            if (num == 0)
+            {
+                return numarray[0];
+            }
+               // Console.WriteLine($"{numarray[num]}");
+                return DisplayArray(numarray, num - 1);
+            
 
-            Console.WriteLine($"");
-            return DisplayArray(numarray, num-1);
+        }
+        static int stringpair (string pairstring, int num , int count)
+        {
+            if (num + 2 == pairstring.Length)
+            {
+
+                return count;
+            }
+            if (pairstring[num] == pairstring[num+2])
+            {
+                return stringpair(pairstring, num + 1, count+1);
+
+            }
+            
+            return stringpair(pairstring, num+1, count);
 
         }
         
             static void Main(string[] args)
         {
             int test = Fibonacci(7);
-            
+            int[] array = new int[6];
             
 
 
             int number = 0;
             int factorial = 1;
+            string teststring = "axaxa";
 
-            Console.WriteLine("type in # ");
-            number = int.Parse(Console.ReadLine());
-
-            for (int i = 1; i < number + 1; i++)
+           int pairnum =  stringpair(teststring, 0,0);
+            Console.WriteLine($"{pairnum}");
+            //Console.WriteLine("type in # ");
+            //number = int.Parse(Console.ReadLine());
+            
+            for (int i = 1; i < 6; i++)
             {
-                factorial = factorial * i;
+                array[i] = i;
             }
-
-            Console.WriteLine($"{factorial}");
+            DisplayArray(array, 5);
+          //  Console.WriteLine($"{factorial}");
 
             Console.ReadKey();
         }
